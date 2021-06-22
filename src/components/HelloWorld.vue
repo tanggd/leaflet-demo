@@ -17,39 +17,55 @@
     <code>&lt;script setup&gt;</code>)
   </p>
 
-  <p>See <code>README.md</code> for more information.</p>
-
-  <p>
-    <a href="https://vitejs.dev/guide/features.html" target="_blank">
-      Vite Docs
-    </a>
-    |
-    <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
-  </p>
-
   <button type="button" @click="count++">count is: {{ count }}</button>
-  <p>
-    Edit
-    <code>components/HelloWorld.vue</code> to test hot module replacement.
-  </p>
+
+  <div class="aa" @click="onChange">change</div>
 </template>
 
-<script lang="ts">
-import { ref, defineComponent } from 'vue'
-export default defineComponent({
-  name: 'HelloWorld',
-  props: {
-    msg: {
-      type: String,
-      required: true
-    }
+<script setup lang="ts">
+import { defineProps, defineEmit, useContext, ref } from 'vue'
+
+const props = defineProps({
+  msg: {
+    type: String,
+    required: true,
+    default: ''
   },
-  setup: () => {
-    const count = ref(0)
-    return { count }
-  }
 })
+
+const emit = defineEmit(['chang'])
+
+const ctx = useContext()
+console.log(ctx)
+
+console.log(props.msg)
+
+const count = ref(0)
+
+const onChange = () => {
+  emit('chang', '123')
+}
+
+// export default defineComponent({
+//   name: 'HelloWorld',
+//   props: {
+//     msg: {
+//       type: String,
+//       required: true
+//     }
+//   },
+//   setup: () => {
+//     const count = ref(0)
+//     return { count }
+//   }
+// })
 </script>
+
+<style module>
+.aa {
+  color: red;
+}
+</style>
 
 <style scoped>
 a {
