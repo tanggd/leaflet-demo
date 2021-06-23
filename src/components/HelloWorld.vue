@@ -1,50 +1,28 @@
 <template>
-  <h1>{{ msg }}</h1>
-
-  <p>
-    Recommended IDE setup:
-    <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
-    +
-    <a
-      href="https://marketplace.visualstudio.com/items?itemName=octref.vetur"
-      target="_blank"
-    >
-      Vetur
-    </a>
-    or
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
-    (if using
-    <code>&lt;script setup&gt;</code>)
-  </p>
-
-  <button type="button" @click="count++">count is: {{ count }}</button>
-
-  <div class="aa" @click="onChange">change</div>
+  <Button type="primary">Primary</Button>
+  <Button>Default</Button>
+  <Button type="dashed">Dashed</Button>
+  <Button type="danger">Danger</Button>
+  <!-- <a-config-provider :auto-insert-space-in-button="false">
+    <Button type="primary">按钮</Button>
+  </a-config-provider> -->
+  <Button type="primary">按钮</Button>
+  <Button type="link">Link</Button>
 </template>
 
-<script setup lang="ts">
-import { defineProps, defineEmit, useContext, ref } from 'vue'
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { Button } from 'ant-design-vue'
+// import 'ant-design-vue/dist/antd.css'
 
-const props = defineProps({
-  msg: {
-    type: String,
-    required: true,
-    default: ''
+export default defineComponent({
+  components: {
+    Button
   },
+  setup() {
+
+  }
 })
-
-const emit = defineEmit(['chang'])
-
-const ctx = useContext()
-console.log(ctx)
-
-console.log(props.msg)
-
-const count = ref(0)
-
-const onChange = () => {
-  emit('chang', '123')
-}
 </script>
 
 <style module>

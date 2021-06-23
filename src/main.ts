@@ -1,7 +1,9 @@
-import ElementPlus from 'element-plus'
+
+// import antDesignVue from 'ant-design-vue'
 import { createApp } from 'vue'
 import App from './App.vue'
 
+
 const app = createApp(App)
+// app.use(antDesignVue)
 app.mount('#app')
-app.use(ElementPlus, { size: 'small', zIndex: 3000 })
