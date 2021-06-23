@@ -45,20 +45,6 @@ const count = ref(0)
 const onChange = () => {
   emit('chang', '123')
 }
-
-// export default defineComponent({
-//   name: 'HelloWorld',
-//   props: {
-//     msg: {
-//       type: String,
-//       required: true
-//     }
-//   },
-//   setup: () => {
-//     const count = ref(0)
-//     return { count }
-//   }
-// })
 </script>
 
 <style module>
